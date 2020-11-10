@@ -1,0 +1,33 @@
+﻿<Window x:Class="WpfApp1.ScreenWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="ScreenWindow" Height="450" Width="1000">
+    <Grid Background="#b5d5ca">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="140*" />
+                <RowDefinition Height="186*" />
+                <RowDefinition Height="93*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="103*" MaxWidth="150"/>
+                <ColumnDefinition Width="200*"  />
+                <ColumnDefinition Width="200*"  />
+                <ColumnDefinition Width="200*"/>
+            </Grid.ColumnDefinitions>
+        <DockPanel Grid.RowSpan="3" Background="#fffcd6">
+            <StackPanel DockPanel.Dock="Bottom" Background="gray">
+                <Image Height="130" Margin="7" Source="C:\Users\Main\Desktop\WSR2020\НЧ 2017\Resources\Сессия 1\MyWork\no_avatar.jpg" Stretch="Fill"/>
+                <TextBlock x:Name="username" Text="Пользователь: $User" Height="20" />
+                <TextBlock x:Name="userrole" Text="Заказчик" Height="20" TextAlignment="Center"/>
+                <Button Content="Выход" Height="30" Click="Button_Click"/>
+            </StackPanel>
+            <Button Content="Кнопка раз" Height="40" DockPanel.Dock="Top" />
+            <Button Height="40" Visibility="Hidden"/>
+        </DockPanel>
+        <Frame x:Name="FormRole" Grid.Column="1" Grid.RowSpan="3" Grid.ColumnSpan="3" NavigationUIVisibility="Hidden"/>
+    </Grid>
+</Window>

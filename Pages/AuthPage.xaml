@@ -1,0 +1,34 @@
+﻿<Page x:Class="WpfApp1.Pages.AuthPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfApp1.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AuthPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="140*" />
+            <RowDefinition Height="186*" />
+            <RowDefinition Height="93*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="103*"  />
+            <ColumnDefinition Width="200*"  />
+            <ColumnDefinition Width="200*"  />
+            <ColumnDefinition Width="200*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="Предприятие" Grid.Column="2" Width="170" Height="50" VerticalAlignment="Bottom" FontSize="25" TextAlignment="Center"/>
+        <Canvas Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" MinWidth="400">
+            <TextBlock Text="Логин:" FontSize="20" MaxHeight="50" MaxWidth="150"  Canvas.Right="250"/>
+            <TextBlock Text="Пароль:" FontSize="20" MaxHeight="50" MaxWidth="150" Canvas.Right="250" Canvas.Top="50" />
+            <TextBox x:Name="TextLogin" Text=""  Height="30" Width="170" Canvas.Right="30"/>
+            <PasswordBox x:Name="TextPassword"  Height="30" Width="170" Canvas.Top="50" Canvas.Right="30"/>
+            <Button Content="Войти" Grid.Row="1" Grid.Column="2" FontSize="20" Click="Button_Click" Width="150" MaxHeight="50" Canvas.Top="100" Canvas.Right="40"/>
+            <TextBlock x:Name="TextError" Canvas.Top="150" Canvas.Right="40" Width="150" FontSize="20"/>
+        </Canvas>
+
+    </Grid>
+</Page>
