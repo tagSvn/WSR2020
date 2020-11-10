@@ -59,7 +59,7 @@ namespace WpfApp1
         public static TextBlock textboxrole = new TextBlock();
         public static void SelectUser(int id) 
         {
-            MySqlCommand sql = new MySqlCommand($"SELECT * FROM {MainWindow.dbname} WHERE id = {id};", MainWindow.connection);
+            MySqlCommand sql = new MySqlCommand($"SELECT * FROM usersdb WHERE id = {id};", MainWindow.connection);
             MySqlDataReader reader = sql.ExecuteReader();
             reader.Read();
             login = Convert.ToString(reader.GetValue(1)); name = Convert.ToString(reader.GetValue(3)); role = Convert.ToString(reader.GetValue(4));
