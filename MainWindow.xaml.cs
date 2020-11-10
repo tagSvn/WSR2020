@@ -32,8 +32,9 @@ namespace WpfApp1
     } */
     public partial class MainWindow : Window
     {
-        public static string dbname = "testdb";
-        public static string usersdb = "usersdb";
+        public static string dbname = "companydb";                                        //Переменные для конекта с базой sql dbname - название базы данных,
+        public static string usersdb = "пользователи";                                                                         //usersdb - таблица с пользователями
+
         internal static string connect = $"server=localhost;user=root;database={dbname};password=nerovi28;";
         internal static MySqlConnection connection = new MySqlConnection(connect);
         internal static MySqlCommand sql = new MySqlCommand("", connection);
@@ -79,7 +80,7 @@ namespace WpfApp1
         public static string Register(string login = "", string pass = "", string name = "", string role = "Заказчик")
         {
             string error;
-            MySqlCommand sql = new MySqlCommand($"SELECT Login, Password FROM {usersdb}", connection);
+            MySqlCommand sql = new MySqlCommand($"SELECT Логин, Пароль FROM {usersdb}", connection);
             //MySqlDataAdapter dataAdapter = new MySqlDataAdapter(sql);
 
             DataTable dt = new DataTable();
@@ -103,7 +104,7 @@ namespace WpfApp1
             if (name == "") { error = "Некорректное имя"; return error; }
 
             
-            sql = new MySqlCommand($"INSERT INTO {usersdb}(Login,Password,Name,Role) VALUES (\"{login}\",\"{pass}\",\"{name}\",\"{role}\");", connection);  //Добавление в базу
+            sql = new MySqlCommand($"INSERT INTO {usersdb}(Логин,Пароль,Наименование,Роль) VALUES (\"{login}\",\"{pass}\",\"{name}\",\"{role}\");", connection);  //Добавление в базу
             sql.ExecuteNonQuery();
             error = "Пользователь создан";
 
@@ -120,7 +121,7 @@ namespace WpfApp1
             //login = TextLogin.Text;
             //pass = TextPassword.Password;
 
-            MySqlCommand sql = new MySqlCommand($"SELECT Login, Password, Role, Id FROM usersdb", MainWindow.connection);
+            MySqlCommand sql = new MySqlCommand($"SELECT Логин, Пароль, Роль, Id FROM {usersdb}", MainWindow.connection);
             //MySqlDataAdapter dataAdapter = new MySqlDataAdapter(sql);
             DataTable dt = new DataTable();
 

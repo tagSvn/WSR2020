@@ -73,12 +73,12 @@ namespace WpfApp1.Pages.Screens
 
             switch (selected.Name)
             {
-                case "TableClotch": selectedTable = "clotch"; break;       
-                case "TableFurn": selectedTable = "furn"; break;
-                case "TableProd": selectedTable = "prod"; break;
+                case "TableClotch": selectedTable = "ткань"; break;       
+                case "TableFurn": selectedTable = "фурнитура"; break;
+                case "TableProd": selectedTable = "изделия"; break;
             }//Определение с какой бд брать данные
 
-                MySqlCommand sql = new MySqlCommand($"SELECT * FROM {selectedTable} LIMIT 10;", MainWindow.connection);
+                MySqlCommand sql = new MySqlCommand($"SELECT * FROM {selectedTable};", MainWindow.connection);
                 DataTable dt = new DataTable();
                 MainWindow.dataAdapter.SelectCommand = sql;
                 MainWindow.dataAdapter.Fill(dt);
@@ -94,8 +94,6 @@ namespace WpfApp1.Pages.Screens
                         clotch1.Color = Convert.ToString(dt.Rows[i].ItemArray[2]); clotch1.Paint = Convert.ToString(dt.Rows[i].ItemArray[3]);
                         clotch1.Info = Convert.ToString(dt.Rows[i].ItemArray[4]); clotch1.Length = Convert.ToInt32(dt.Rows[i].ItemArray[5]);
                         clotch1.Width = Convert.ToInt32(dt.Rows[i].ItemArray[6]); clotch1.Price = Convert.ToInt32(dt.Rows[i].ItemArray[7]);
-                        clotch1.image = new Image(); clotch1.image.Source = new BitmapImage(new Uri(@"C:\1015.jpg", UriKind.RelativeOrAbsolute));
-                        clotch1.image.Stretch = Stretch.Fill;
                         dataCloth.Add(clotch1);
                     }
                 foreach (Cloth clot in dataCloth) selected.Items.Add(clot);
