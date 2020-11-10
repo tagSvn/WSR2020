@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Text;
@@ -56,10 +57,9 @@ namespace WpfApp1
         public static Frame mainframe = new Frame();
         public static TextBlock textboxuser = new TextBlock();
         public static TextBlock textboxrole = new TextBlock();
-
         public static void SelectUser(int id) 
         {
-            MySqlCommand sql = new MySqlCommand($"SELECT * FROM usersdb WHERE id = {id};", MainWindow.connection);
+            MySqlCommand sql = new MySqlCommand($"SELECT * FROM {MainWindow.dbname} WHERE id = {id};", MainWindow.connection);
             MySqlDataReader reader = sql.ExecuteReader();
             reader.Read();
             login = Convert.ToString(reader.GetValue(1)); name = Convert.ToString(reader.GetValue(3)); role = Convert.ToString(reader.GetValue(4));

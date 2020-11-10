@@ -32,7 +32,7 @@ namespace WpfApp1
     } */
     public partial class MainWindow : Window
     {
-        internal static string connect = "server=localhost;user=root;database=testdb;password=nerovi28;";
+        internal static string connect = $"server=localhost;user=root;database={dbname};password=nerovi28;";
         internal static MySqlConnection connection = new MySqlConnection(connect);
         internal static MySqlCommand sql = new MySqlCommand("", connection);
         internal static MySqlDataAdapter dataAdapter = new MySqlDataAdapter(sql);
@@ -40,6 +40,7 @@ namespace WpfApp1
         public static Frame frame1;
         public static Window Screenwindow = new Window();                                                 //Преобразования нестатичных объектов
         public static Window thiswindow = new Window();
+        public static string dbname = "testdb";
         public MainWindow()
         {
             InitializeComponent();
@@ -76,7 +77,7 @@ namespace WpfApp1
         public static string Register(string login = "", string pass = "", string name = "", string role = "Заказчик")
         {
             string error;
-            MySqlCommand sql = new MySqlCommand("SELECT Login, Password FROM usersdb", connection);
+            MySqlCommand sql = new MySqlCommand($"SELECT Login, Password FROM {dbname}", connection);
             //MySqlDataAdapter dataAdapter = new MySqlDataAdapter(sql);
 
             DataTable dt = new DataTable();
@@ -100,7 +101,7 @@ namespace WpfApp1
             if (name == "") { error = "Некорректное имя"; return error; }
 
             
-            sql = new MySqlCommand($"INSERT INTO usersdb(Login,Password,Name,Role) VALUES (\"{login}\",\"{pass}\",\"{name}\",\"{role}\");", connection);  //Добавление в базу
+            sql = new MySqlCommand($"INSERT INTO {dbname}(Login,Password,Name,Role) VALUES (\"{login}\",\"{pass}\",\"{name}\",\"{role}\");", connection);  //Добавление в базу
             sql.ExecuteNonQuery();
             error = "Пользователь создан";
 
@@ -117,7 +118,7 @@ namespace WpfApp1
             //login = TextLogin.Text;
             //pass = TextPassword.Password;
 
-            MySqlCommand sql = new MySqlCommand("SELECT Login, Password, Role, Id FROM usersdb", MainWindow.connection);
+            MySqlCommand sql = new MySqlCommand($"SELECT Login, Password, Role, Id FROM {dbname}", MainWindow.connection);
             //MySqlDataAdapter dataAdapter = new MySqlDataAdapter(sql);
             DataTable dt = new DataTable();
 
