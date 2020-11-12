@@ -19,12 +19,12 @@
             <ColumnDefinition Width="200*"/>
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Row="0" Grid.RowSpan="3" Background="#fffcd6">
-            <Button x:Name="authbut" Content="Авторизация" Height="50" FontSize="17" Click="Button_Click" />
-            <Button x:Name="regbut" Content="Регистрация" Height="50" FontSize="17" Click="Button_Click_1"/>
+            <Button x:Name="authbut" Content="Авторизация" Height="50" FontSize="17" Click="Button_Click" Visibility="Hidden"/>
+            <Button x:Name="regbut" Content="Регистрация" Height="50" FontSize="17" Click="Button_Click_1" Visibility="Hidden"/>
             <Button x:Name="Cheat" Content="Cheat" Height="50" FontSize="17" Click="Button_Click_2"/>
         </StackPanel>
+        <Button Content="Выход" Height="50" VerticalAlignment="Bottom" Grid.Row="2" Click="Button_Click_3"/>
         <Frame x:Name="frame" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="3" NavigationUIVisibility="Hidden">
-
         </Frame>
     </Grid>
 </Window>

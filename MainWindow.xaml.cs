@@ -46,14 +46,23 @@ namespace WpfApp1
         
         public MainWindow()
         {
+            bool upconnect = true;                                                           //Переменная проверки доступности базы данных
             InitializeComponent();
-            connection.Open();
+
+            try { connection.Open(); }
+            catch { MessageBox.Show("Нет соединения с базой данных"); upconnect = false;}
+            finally { if (upconnect == true) { connection.Open(); frame1.Navigate(new AuthPage()); 
+                    authbut.Visibility = Visibility.Visible; 
+                    regbut.Visibility = Visibility.Visible; 
+                        } 
+                    }
+
             frame1 = frame;
             Screenwindow = new ScreenWindow();                                             //Присваивание статичным элементам значения
             thiswindow = this;
         //Mainwindow = WpfApp1.MainWindow();
 
-        frame1.Navigate(new AuthPage());
+       
             //ConsoleApp1.Program.MainMenu();
         }
 
@@ -146,6 +155,11 @@ namespace WpfApp1
             dataAdapter.Dispose();
             if (id != 0 && error == "Вход выполняется") GoToScreen(id);
             return error;
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            Environment.Exit(0);
         }
     }
 }
