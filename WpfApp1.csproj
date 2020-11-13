@@ -130,18 +130,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\Screens\Screen_Director.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\Screens\Screen_Manager.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\Screens\Screen_Storekeeper.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="ScreenWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -156,15 +144,6 @@
     </Compile>
     <Compile Include="Pages\Screens\Screen_Client.xaml.cs">
       <DependentUpon>Screen_Client.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Screens\Screen_Director.xaml.cs">
-      <DependentUpon>Screen_Director.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Screens\Screen_Manager.xaml.cs">
-      <DependentUpon>Screen_Manager.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Screens\Screen_Storekeeper.xaml.cs">
-      <DependentUpon>Screen_Storekeeper.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

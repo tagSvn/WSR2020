@@ -48,22 +48,18 @@ namespace WpfApp1
         {
             bool upconnect = true;                                                           //Переменная проверки доступности базы данных
             InitializeComponent();
+            frame1 = frame;
+            Screenwindow = new ScreenWindow();                                             //Присваивание статичным элементам значения
+            thiswindow = this;
 
             try { connection.Open(); }
             catch { MessageBox.Show("Нет соединения с базой данных"); upconnect = false;}
-            finally { if (upconnect == true) { connection.Open(); frame1.Navigate(new AuthPage()); 
+            finally { if (upconnect == true) {
+                    frame1.Navigate(new AuthPage());                                               //Проверка на соединение с базой
                     authbut.Visibility = Visibility.Visible; 
                     regbut.Visibility = Visibility.Visible; 
                         } 
                     }
-
-            frame1 = frame;
-            Screenwindow = new ScreenWindow();                                             //Присваивание статичным элементам значения
-            thiswindow = this;
-        //Mainwindow = WpfApp1.MainWindow();
-
-       
-            //ConsoleApp1.Program.MainMenu();
         }
 
         void Button_Click(object sender, RoutedEventArgs e)

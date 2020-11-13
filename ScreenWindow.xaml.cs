@@ -19,33 +19,35 @@ namespace WpfApp1
 {
     public class Cloth
     {
-        public int Article { get; set; }
-        public int Length { get; set; }
-        public int Width { get; set; }
-        public int Price { get; set; }
+        public string Article { get; set; }
         public string Name { get; set; }
         public string Color { get; set; }
         public string Info { get; set; }
         public string Paint { get; set; }
         public Image image { get; set; }
+        public float Length { get; set; }
+        public float Width { get; set; }
+        public float Price { get; set; }
 
     }
     public class Furn
     {
         public string Article { get; set; }
         public string Name { get; set; }
-        public int Width { get; set; }
-        public int Length { get; set; }
         public string Type { get; set; }
-        public int Price { get; set; }
+        public float Width { get; set; }
+        public float Length { get; set; }
+        public float Weight { get; set; }
+        public Image image { get; set; }
+        public float Price { get; set; }
     }
     public class Prod
     {
         public string Article { get; set; }
         public string Name { get; set; }
-        public int Width { get; set; }
-        public int Length { get; set; }
-        public int Price { get; set; }
+        public float Width { get; set; }
+        public float Length { get; set; }
+        public float Price { get; set; }
     }
     /// <summary>
     /// Логика взаимодействия для ScreenWindow.xaml
@@ -67,9 +69,9 @@ namespace WpfApp1
             switch (role)
             {
                 case "Заказчик": mainframe.Navigate(new Pages.Screens.Screen_Client()); break;
-                case "Менеджер": mainframe.Navigate(new Pages.Screens.Screen_Manager()); break;
-                case "Кладовщик": mainframe.Navigate(new Pages.Screens.Screen_Storekeeper()); break;                                   //Функция определения пользователя
-                case "Дирекция": mainframe.Navigate(new Pages.Screens.Screen_Director()); break;
+                //case "Менеджер": mainframe.Navigate(new Pages.Screens.Screen_Manager()); break;
+                //case "Кладовщик": mainframe.Navigate(new Pages.Screens.Screen_Storekeeper()); break;                                   //Функция определения пользователя
+                //case "Дирекция": mainframe.Navigate(new Pages.Screens.Screen_Director()); break;
             }
             textboxuser.Text = "Пользователь: " + User.login;
             textboxrole.Text = role;
